@@ -1000,12 +1000,28 @@
         "name": "Rondônia"
     },
     {
+        "code": 12,
+        "name": "Acre"
+    },
+    {
         "code": 13,
         "name": "Amazonas"
     },
     {
+        "code": 14,
+        "name": "Roraima"
+    },
+    {
         "code": 15,
         "name": "Pará"
+    },
+    {
+        "code": 16,
+        "name": "Amapá"
+    },
+    {
+        "code": 17,
+        "name": "Tocantins"
     },
     {
         "code": 21,
