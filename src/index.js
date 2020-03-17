@@ -8,41 +8,69 @@ app.listen(port, () => {
 });
 
 app.get("/", async (req, res) => {
-  const data = await utils.getData();
-  res.json(data);
+  try {
+    const data = await utils.getData();
+    res.json(data);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/world", async (req, res) => {
-  const data = await utils.getData();
-  const transfomedData = utils.parseData(data, "world");
-  res.json(transfomedData);
+  try {
+    const data = await utils.getData();
+    const transfomedData = utils.parseData(data, "world");
+    res.json(transfomedData);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/world/total", async (req, res) => {
-  const data = await utils.getData();
-  const transfomedData = utils.parseData(data, "world", true);
-  res.json(transfomedData.total);
+  try {
+    const data = await utils.getData();
+    const transfomedData = utils.parseData(data, "world", true);
+    res.json(transfomedData.total);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/world/last", async (req, res) => {
-  const data = await utils.getData();
-  const transfomedData = utils.parseData(data, "world", true);
-  res.json(transfomedData);
+  try {
+    const data = await utils.getData();
+    const transfomedData = utils.parseData(data, "world", true);
+    res.json(transfomedData);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/brazil", async (req, res) => {
-  const data = await utils.getData();
-  const transfomedData = utils.parseData(data, "brazil");
-  res.json(transfomedData);
+  try {
+    const data = await utils.getData();
+    const transfomedData = utils.parseData(data, "brazil");
+    res.json(transfomedData);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/brazil/total", async (req, res) => {
-  const total = await utils.getTotal();
-  res.json(total);
+  try {
+    const total = await utils.getTotal();
+    res.json(total);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });
 
 app.get("/brazil/last", async (req, res) => {
-  const data = await utils.getData();
-  const transfomedData = utils.parseData(data, "brazil", true);
-  res.json(transfomedData);
+  try {
+    const data = await utils.getData();
+    const transfomedData = utils.parseData(data, "brazil", true);
+    res.json(transfomedData);
+  } catch (error) {
+    utils.throwError(res);
+  }
 });

@@ -3,9 +3,14 @@ const axios = require("axios");
 const codes = JSON.parse(fs.readFileSync("src/assets/codes.json", "utf8"));
 
 const getData = async () => {
-  const raw = await _getRaw();
-  const data = _getJson(raw);
-  return data;
+  try {
+    const raw = await _getRaw();
+    const data = _getJson(raw);
+    return data;
+    
+  } catch (error) {
+    throw new Error('api overload');
+  }
 };
 
 const getTotal = async () => {
@@ -46,11 +51,21 @@ const parseData = (data, mode, last = false) => {
   return data;
 };
 
+const throwError = (res) => {
+  res.statusCode = 500;
+  res.statusMessage = "api overload";
+  res.json({message: "api overload"});
+} 
+
 const _getRaw = async () => {
-  var raw = await axios.get(
-    "http://plataforma.saude.gov.br/novocoronavirus/resources/scripts/database.js"
-  );
-  return raw.data;
+  try {
+    var raw = await axios.get(
+      "http://plataforma.saude.gov.br/novocoronavirus/resources/scripts/database.js"
+    );
+    return raw.data;
+  } catch (error) {
+    throw new Error('api overload');
+  }
 };
 
 const _getJson = raw => {
@@ -61,4 +76,4 @@ const _sum = (data, key) => {
   return data.reduce((a, b) => a + (b[key] || 0), 0);
 };
 
-module.exports = { getData, getTotal, parseData };
+module.exports = { getData, getTotal, parseData, throwError };
