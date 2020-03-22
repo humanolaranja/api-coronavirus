@@ -37,9 +37,11 @@ const getTotal = async (source = 1) => {
       const docs = data.docs;
       const cases = docs.map(item => item.cases);
       output = {
-        cases: 0
+        cases: 0,
+        updated_at: ""
       };
       output.cases = cases.reduce((a, b) => a + b, 0);
+      output.updated_at = data.updated_at;
 
       return output;
   }
@@ -73,19 +75,18 @@ const parseData = (data, mode, last = false, source = 1) => {
         cases: [],
         updated_at: ""
       };
-      
 
       const grouped = _groupBy(data.docs, "state_cod");
-      
+
       const parsed = grouped.map((item, index) => {
         return {
           state: item[0].state,
           state_name: codes.find(item => item.code === index).name,
-          cases: _sum(item, "cases"),
-        }
+          cases: _sum(item, "cases")
+        };
       });
 
-      output.cases = parsed.filter(function(e){return e});
+      output.cases = parsed.filter(e => e);
       output.updated_at = data.updated_at;
 
       return output;
