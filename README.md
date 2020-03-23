@@ -21,5 +21,5 @@ source 2: [Globo](https://especiais.g1.globo.com/bemestar/coronavirus/mapa-coron
 | `/v2/brazil/total` | total cases through brazil       | 2      |
 
 
-## available [here](http://dados-br-covid-19.gama-tdc-poa-ai-5290c8c8e5797924dc1ad5d1b85b37c0-0002.us-south.containers.appdomain.cloud)
+## available [here](http://coronavirus-covid-19.gama-tdc-poa-ai-5290c8c8e5797924dc1ad5d1b85b37c0-0002.us-south.containers.appdomain.cloud/)
 
